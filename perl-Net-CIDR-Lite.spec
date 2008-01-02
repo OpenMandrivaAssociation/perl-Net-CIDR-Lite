@@ -15,6 +15,7 @@ Source:         http://www.cpan.org/modules/by-module/Net/%{module}-%{version}.t
 BuildRequires:	perl-devel
 %endif
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Faster alternative to Net::CIDR when merging a large number of CIDR address
