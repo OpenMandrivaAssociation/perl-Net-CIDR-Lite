@@ -1,28 +1,28 @@
-%define module	Net-CIDR-Lite
-%define name	perl-%{module}
-%define version 0.20
-%define release %mkrel 5
+%define upstream_name	 Net-CIDR-Lite
+%define upstream_version 0.20
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Perl extension for merging IPv4 or IPv6 CIDR addresses
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Net/%{module}-%{version}.tar.bz2
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Faster alternative to Net::CIDR when merging a large number of CIDR address
 ranges. Works for IPv4 and IPv6 addresses.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -43,5 +43,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Net
 %{_mandir}/*/*
-
-
