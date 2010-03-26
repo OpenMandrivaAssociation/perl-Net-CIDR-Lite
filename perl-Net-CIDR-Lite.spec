@@ -1,5 +1,5 @@
 %define upstream_name	 Net-CIDR-Lite
-%define upstream_version 0.20
+%define upstream_version 0.21
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
@@ -9,11 +9,12 @@ Summary:	Perl extension for merging IPv4 or IPv6 CIDR addresses
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:    http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
 
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
+
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
@@ -33,7 +34,7 @@ rm -rf %{buildroot}
 %makeinstall_std
 
 %check
-%{__make} test
+%make test
 
 %clean 
 rm -rf %{buildroot}
