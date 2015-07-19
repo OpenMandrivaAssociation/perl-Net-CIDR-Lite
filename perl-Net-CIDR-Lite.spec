@@ -4,7 +4,7 @@
 Summary:	Perl extension for merging IPv4 or IPv6 CIDR addresses
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	14
+Release:	15
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
